@@ -1,7 +1,3 @@
-from django.shortcuts import render
-from django.http import HttpResponse, HttpRequest
-from django.views.decorators.csrf import csrf_exempt
-
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework import viewsets

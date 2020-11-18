@@ -17,7 +17,7 @@ logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 
-host = '127.0.0.1:9000'
+host = '139.224.110.130:8100'
 url = '/logs/apis/'
 handler = HTTPHandler(host, url, method='POST')
 # handler = MyHandler()
