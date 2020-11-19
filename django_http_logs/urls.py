@@ -10,5 +10,5 @@ from rest_framework import routers
 from . import views
 
 urlpatterns = [
-    path(r"apis/",views.LogsRestfulAPI.as_view({"get": "list", "post": "create"}),name="log_apis"),
+    path(r"apis",views.LogsRestfulAPI.as_view({"post": "create"}),name="log_apis"),
 ]

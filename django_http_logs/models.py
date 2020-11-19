@@ -4,6 +4,14 @@ from datetime import datetime
 from django.db import models
 
 
+LEVEL_CHOOSE = (
+    (0,"DEBUG"),
+    (1,"INFO"),
+    (2,"WARNING"),
+    (3,"ERROR"),
+    (4,"CRITICAL"),
+)
+
 # Create your models here.
 class Logs(models.Model):
     """
@@ -14,7 +22,7 @@ class Logs(models.Model):
     args = models.TextField(verbose_name="Args", default="")
 
     # level
-    levelname = models.CharField(max_length=8, verbose_name="Level Name", default="")
+    levelname = models.IntegerField(choices=LEVEL_CHOOSE,verbose_name="Level",default=0)
     levelno = models.CharField(max_length=32, verbose_name="Level No", default="")
     pathname = models.CharField(max_length=256, verbose_name="Path Name", default="")
     filename = models.CharField(max_length=64, verbose_name="File Name", default="")
@@ -25,7 +33,7 @@ class Logs(models.Model):
     lineno = models.CharField(max_length=32, verbose_name="Line No", default="")
     funcname = models.CharField(max_length=32, verbose_name="Func Name", default="")
 
-    created = models.FloatField(verbose_name="Created Timestmap", default="")
+    created = models.FloatField(verbose_name="Created Time", default=0)
     msecs = models.FloatField(verbose_name="Msecs", default="")
     relativeCreated = models.FloatField(verbose_name="Relative Created", default="")
 
@@ -37,6 +45,7 @@ class Logs(models.Model):
     class Meta:
         verbose_name = "日志中心"
         verbose_name_plural = verbose_name
+        indexes = [models.Index(fields=['created', "levelname"]), ]
 
     def __str__(self):
         return f"{self.name}  {self.levelname} :{self.msg}"

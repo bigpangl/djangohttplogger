@@ -107,7 +107,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
@@ -144,13 +144,3 @@ CELERY_ROUTES = {
         'routing_key': 'pylogger',
     }
 }
-
-# DEFAULT_QUEUE_NAME = "pylogger"
-#
-# CELERY_QUEUES = {
-#     DEFAULT_QUEUE_NAME: {
-#         "exchange": "default",
-#         "exchange_type": "direct",
-#         "routing_key": "default"
-#     }
-# }

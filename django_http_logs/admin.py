@@ -7,9 +7,8 @@ from .models import Logs
 @admin.register(Logs)
 class LogsAdministrator(admin.ModelAdmin):
     list_display = ["times", 'name', 'levelname', "short_message"]
-
     search_fields = ["msg"]
-
+    list_filter = ["levelname"]
     fieldsets = [
         (
             "Detail", {
@@ -57,7 +56,3 @@ class LogsAdministrator(admin.ModelAdmin):
 
     def has_change_permission(self, request, obj=None):
         return False
-    
-    def delete_model(self, request, obj):
-        obj.delete()
-        # super(LogsAdministrator, self).delete_model(request,obj)

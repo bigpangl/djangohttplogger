@@ -17,11 +17,11 @@ logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 
-host = '139.224.110.130:8100'
-url = '/logs/apis/'
+host = '127.0.0.1:8080'
+url = '/logs/apis'
 handler = HTTPHandler(host, url, method='POST')
-# handler = MyHandler()
 logger.addHandler(handler)
+for i in range(2):
+    logger.critical("你好")
 
-logger.debug("你好")
 # time.sleep(10)

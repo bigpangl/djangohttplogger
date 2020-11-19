@@ -16,7 +16,7 @@ with open('README.rst', "r") as readme:
 
 setup(
     name='django-http-logs',
-    version='0.4',
+    version='1.0.8',
     packages=["django_http_logs"],  # find_packages(),
     include_package_data=True,
     license='BSD License',  # example license
